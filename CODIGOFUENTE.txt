@@ -1,0 +1,69 @@
+// C++ code
+//Guido Santillan,Thomas Szymuda,Felipe Parache,Federico Vivas,Valentin Lloret
+#define	LED_ROJO_2  13
+#define	LED_AMARILLO_1  12
+#define	LED_VERDE_1  11
+//
+#define tiempo_apagado  2000
+#define tiempo_prendido 5000
+#define tiempo_prendido_amarillo  3000
+
+#define sonido_rancio 2
+
+
+void setup()
+{
+  pinMode(LED_ROJO_2, OUTPUT);
+  pinMode(LED_AMARILLO_1, OUTPUT);
+  pinMode(LED_VERDE_1, OUTPUT);
+  pinMode(sonido_rancio,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+
+  
+  prender_rojo();
+
+  
+  prender_amarillo();
+    
+  prender_verde();
+
+}
+
+void prender_rojo()
+{
+//melodia
+  digitalWrite(LED_ROJO_2, HIGH);
+  	int melody[] = {262, 294, 330, 349, 392};
+  int duration = 1000;
+  for (int i = 0; i < 5; i++) {
+    tone(sonido_rancio, melody[i]);
+    delay(duration);
+    noTone(sonido_rancio);
+    delay(duration / 10);
+  }
+  digitalWrite(LED_ROJO_2, LOW);
+  Serial.println("prende y apaga rojo");	
+}
+void prender_amarillo()
+{
+  digitalWrite(LED_AMARILLO_1, HIGH); 
+  delay(tiempo_prendido_amarillo);
+  digitalWrite(LED_AMARILLO_1, LOW);
+  delay(tiempo_apagado);
+  
+  Serial.println("prende y apaga amarillo");
+
+}
+void prender_verde()
+{
+  digitalWrite(LED_VERDE_1, HIGH);	    
+  delay(tiempo_prendido);
+  digitalWrite(LED_VERDE_1, LOW);
+  delay(tiempo_apagado); 
+  
+  Serial.println("prende y apaga verde");
+}
