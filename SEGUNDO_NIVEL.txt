@@ -1,0 +1,100 @@
+// C++ code
+//Thomas Szymuda 1d Segundo Nivel
+#define	LED_ROJO_2  13
+#define	LED_AMARILLO_1  12
+#define	LED_VERDE_1  11
+//
+#define tiempo_apagado 500 
+#define tiempo_prendido 5000
+#define tiempo_prendido_amarillo  3000
+
+#define sonido_rancio 2
+
+
+void setup()
+{
+  pinMode(LED_ROJO_2, OUTPUT);
+  pinMode(LED_AMARILLO_1, OUTPUT);
+  pinMode(LED_VERDE_1, OUTPUT);
+  pinMode(sonido_rancio,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+
+  
+  prender_rojo();
+  
+  titilar(LED_ROJO_2);
+
+  prender_amarillo();
+  
+  titilar(LED_AMARILLO_1);
+    
+  prender_verde();
+
+  titilar(LED_VERDE_1);
+  
+  prender_amarillo();
+     
+  titilar(LED_AMARILLO_1);
+}
+
+void prender_rojo()
+{
+//melodia
+  digitalWrite(LED_ROJO_2, HIGH);
+  	int melody[] = {262, 294, 330, 349, 392};
+  int duration = 1000;
+  for (int i = 0; i < 5; i++) {
+    tone(sonido_rancio, melody[i]);
+    delay(duration);
+    noTone(sonido_rancio);
+    delay(duration / 10);
+  }
+  digitalWrite(LED_ROJO_2, LOW);
+  delay(tiempo_apagado);
+  Serial.println("prende y apaga rojo");	
+}
+void prender_amarillo()
+{
+  
+  digitalWrite(LED_AMARILLO_1, HIGH); 
+  int melody[] = {262, 262};
+  int duration = 1000;
+  for (int i = 0; i < 2; i++) {
+    tone(sonido_rancio, melody[i]);
+    delay(duration);
+    noTone(sonido_rancio);
+    delay(duration / 10);
+  }
+  digitalWrite(LED_AMARILLO_1, LOW);
+  delay(tiempo_apagado);
+  Serial.println("prende y apaga amarillo");
+
+}
+void prender_verde()
+{
+  digitalWrite(LED_VERDE_1, HIGH);	    
+  delay(tiempo_prendido);
+  digitalWrite(LED_VERDE_1, LOW);
+  delay(tiempo_apagado); 
+  
+  Serial.println("prende y apaga verde");
+}
+void titilar(int led_titilar)
+{
+  digitalWrite(led_titilar, HIGH);
+  delay(275);
+  digitalWrite(led_titilar, LOW);
+  delay(275);
+  digitalWrite(led_titilar, HIGH);
+  delay(275);
+  digitalWrite(led_titilar, LOW);
+  delay(275);
+  digitalWrite(led_titilar, HIGH);
+  delay(275);
+  digitalWrite(led_titilar, LOW);
+  Serial.println("Titila");
+}
