@@ -1,9 +1,13 @@
 // C++ code
 //Thomas Szymuda 1d Tercer Nivel
 //LEDS
-#define	LED_ROJO_2  13
+#define	LED_ROJO_1  13
 #define	LED_AMARILLO_1  12
 #define	LED_VERDE_1  11
+
+#define	LED_ROJO_2  3
+#define	LED_AMARILLO_2  4
+#define	LED_VERDE_2  5
 //TIEMPOS
 #define tiempo_apagado 500 
 #define tiempo_prendido 5000
@@ -14,9 +18,15 @@
 #define BOTON_ALARGUE 10
 void setup()
 {
-  pinMode(LED_ROJO_2, OUTPUT);
+  pinMode(LED_ROJO_1, OUTPUT);
   pinMode(LED_AMARILLO_1, OUTPUT);
   pinMode(LED_VERDE_1, OUTPUT);
+  //
+  pinMode(LED_ROJO_2, OUTPUT);
+  pinMode(LED_AMARILLO_2, OUTPUT);
+  pinMode(LED_VERDE_2, OUTPUT);
+  
+ //
   pinMode(sonido_rancio,OUTPUT);
   pinMode(BOTON_ALARGUE,INPUT);
   Serial.begin(9600);
@@ -24,29 +34,47 @@ void setup()
 
 void loop()
 {
-
+  //PRENDE VERDE ROJO Y TITILA VERDE PARA CAMBIO
+  //PRENDE ROJO NUEVAMENTE PARA QUEDAR PARADO
+  prender_rojo(LED_ROJO_1,LED_VERDE_2);
+  titilar(LED_VERDE_2);
   
-  prender_rojo();
   
-  titilar(LED_ROJO_2);
-
-  prender_amarillo();
+  //PRENDE AMARILLO TITILA AMARILLO Y ROJO Y SE CAMBIA SEMAFORO
+  prender_amarillo(LED_AMARILLO_2);
+  titilar(LED_AMARILLO_2);
+  titilar(LED_ROJO_1);
   
+  //PRENDE ROJO 2 Y VERDE 1, APAGA ROJO 1 Y PRENDE AMARILL
+  prender_rojo(LED_ROJO_2);
+  apagar_rojo(LED_ROJO_1);
+  //
+  prender_amarillo(LED_AMARILLO_1);
   titilar(LED_AMARILLO_1);
-    
-  prender_verde();
-
+  //
+  prender_rojo(LED_ROJO_2,LED_VERDE_1);
   titilar(LED_VERDE_1);
-  
-  prender_amarillo();
-     
+  //
+  prender_rojo(LED_ROJO_2);
+  prender_amarillo(LED_AMARILLO_1);
   titilar(LED_AMARILLO_1);
+  apagar_rojo(LED_ROJO_2);
+  //
+  prender_rojo(LED_ROJO_1);
+  prender_amarillo(LED_AMARILLO_2);
+  titilar(LED_AMARILLO_2);
+  prender_rojo(LED_ROJO_1,LED_VERDE_2);
+  
+ 
+  
+  
 }
 
-void prender_rojo()
+void prender_rojo(int led_prender_rojo, int led_prender_verde)
 {
 //melodia
-  digitalWrite(LED_ROJO_2, HIGH);
+  digitalWrite(led_prender_verde, HIGH);
+  digitalWrite(led_prender_rojo, HIGH);
   	int melody[] = {262, 294, 330, 349, 392};
   int duration = 1000;
   for (int i = 0; i < 5; i++) {
@@ -55,14 +83,15 @@ void prender_rojo()
     noTone(sonido_rancio);
     delay(duration / 10);
   }
-  digitalWrite(LED_ROJO_2, LOW);
+  digitalWrite(led_prender_verde, LOW);
+  alargue();
   delay(tiempo_apagado);
   Serial.println("prende y apaga rojo");	
 }
-void prender_amarillo()
+void prender_amarillo(int led_prender_amarillo)
 {
   
-  digitalWrite(LED_AMARILLO_1, HIGH); 
+  digitalWrite(led_prender_amarillo, HIGH); 
   int melody[] = {262, 262};
   int duration = 1000;
   for (int i = 0; i < 2; i++) {
@@ -71,17 +100,17 @@ void prender_amarillo()
     noTone(sonido_rancio);
     delay(duration / 10);
   }
-  digitalWrite(LED_AMARILLO_1, LOW);
+  digitalWrite(led_prender_amarillo, LOW); 
   delay(tiempo_apagado);
   Serial.println("prende y apaga amarillo");
 
 }
-void prender_verde()
+void prender_verde(int led_prender_verde)
 {
-  digitalWrite(LED_VERDE_1, HIGH);
+  digitalWrite(led_prender_verde, HIGH);
   alargue();
   delay(tiempo_prendido);
-  digitalWrite(LED_VERDE_1, LOW);
+  digitalWrite(led_prender_verde, LOW);
   delay(tiempo_apagado); 
   
   Serial.println("prende y apaga verde");
@@ -108,8 +137,16 @@ apretoBoton=digitalRead(BOTON_ALARGUE);
 Serial.println("Toco boton");
 if(apretoBoton==0)
 {
-  delay(2000);
-  
+  delay(5000); 
 }
 Serial.println("Toco boton");
+}
+void prender_rojo(int prender_rojo)
+{
+  digitalWrite(prender_rojo, HIGH);
+}
+
+void apagar_rojo(int apagado_rojo)
+{
+  digitalWrite(apagado_rojo, LOW);
 }
