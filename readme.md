@@ -1,6 +1,6 @@
 # DOJO - A - Punto 3
 
-![LOGO TINKERCAD](https://github.com/iagovalverde/EjemploDocumentacion/blob/main/img/ArduinoTinkercad.jpg)
+![LOGO TINKERCAD](https://i.ibb.co/K08W9N9/Arduino-Tinkercad.jpg)
 
 ## INTEGRANTES
 * Thomas Szymuda
