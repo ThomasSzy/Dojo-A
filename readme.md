@@ -34,17 +34,15 @@ Los leds y el piezo son asignados a través del hashtag define a los pines a los
 C++ 
 void loop()
 {
-  //PRENDE VERDE ROJO Y TITILA VERDE PARA CAMBIO
-  //PRENDE ROJO NUEVAMENTE PARA QUEDAR PARADO
+  
   prender_rojo(LED_ROJO_1,LED_VERDE_2);
   titilar(LED_VERDE_2);
-   
-  //PRENDE AMARILLO TITILA AMARILLO Y ROJO Y SE CAMBIA SEMAFORO
+  
   prender_amarillo(LED_AMARILLO_2);
   titilar(LED_AMARILLO_2);
   titilar(LED_ROJO_1);
   
-  //PRENDE ROJO 2 Y VERDE 1, APAGA ROJO 1 Y PRENDE AMARILL
+  
   prender_rojo(LED_ROJO_2);
   apagar_rojo(LED_ROJO_1);
   //
