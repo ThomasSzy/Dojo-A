@@ -4,15 +4,15 @@
 
 ## INTEGRANTES
 * Thomas Szymuda
-* 
-*  
-* 
-* 
+* Guido Santillan
+* Felipe Parache
+* Federico Vivas
+* Valentin Lloret
 
 
 ## PROYECTO: DOJO A punto 3
 
-![IMAGEN DEL PROYECTO](ao7jh-pac67.jpg)
+![IMAGEN DEL PROYECTO](https://i.ibb.co/P5StJQ8/Captura.jpg)
 
 ## DESCRIPCIÓN
 
