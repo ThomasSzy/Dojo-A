@@ -67,3 +67,4 @@ void prender_verde()
   
   Serial.println("prende y apaga verde");
 }
+link:https://www.tinkercad.com/things/ecls2Nn1JkC
