@@ -1,0 +1,119 @@
+// Thomas Szymuda 1d 
+//
+//Leds
+#define LED_A 13
+#define LED_B 12
+#define LED_C 11
+#define LED_D 10
+//Boton
+#define PULLOUT 9
+int prendido;
+//Cronometro
+#define CON_G 8
+#define CON_F 7
+#define CON_A 6
+#define CON_B 5
+#define CON_C 2
+#define CON_D 3
+#define CON_E 4
+//Contador
+
+void setup()
+{
+  //Leds;
+  pinMode(LED_A, OUTPUT);
+  pinMode(LED_B, OUTPUT);
+  pinMode(LED_C, OUTPUT);
+  pinMode(LED_D, OUTPUT);
+  //CONTADOR
+  pinMode(CON_G, OUTPUT);
+  pinMode(CON_F, OUTPUT);
+  pinMode(CON_A, OUTPUT);
+  pinMode(CON_B, OUTPUT);
+  pinMode(CON_C, OUTPUT);
+  pinMode(CON_D, OUTPUT);
+  pinMode(CON_E, OUTPUT);
+  //Boton y serial
+  pinMode(PULLOUT, INPUT);
+  Serial.begin(9600);
+}
+void loop()
+{
+  prender_boton();
+}
+
+void prender_boton()
+{
+  prendido = digitalRead(PULLOUT);
+  Serial.println(prendido);
+  if(prendido == HIGH)
+  {
+      digitalWrite(LED_A, HIGH);
+  //Contador estaciones
+ 	constitucion();
+    sanjuan();
+    independecia();
+    moreno();
+    
+  } 
+}
+void constitucion()
+{
+  digitalWrite(LED_A, HIGH);
+  //Contador estaciones
+  digitalWrite(CON_A, HIGH);
+  digitalWrite(CON_B, HIGH);
+  digitalWrite(CON_G, HIGH);
+  digitalWrite(CON_C, HIGH);
+  digitalWrite(CON_D, HIGH);
+  delay(2500);
+  apagar();
+  
+}
+void apagar()
+{
+  digitalWrite(LED_A, LOW);
+  digitalWrite(LED_B, LOW);
+  digitalWrite(LED_C, LOW);
+  digitalWrite(LED_D, LOW);
+  //Estaciones
+  digitalWrite(CON_A, LOW);
+  digitalWrite(CON_B, LOW);
+  digitalWrite(CON_G, LOW);
+  digitalWrite(CON_C, LOW);
+  digitalWrite(CON_D, LOW);
+  digitalWrite(CON_E, LOW);
+  digitalWrite(CON_F, LOW);
+}
+void sanjuan()
+{
+  digitalWrite(LED_B, HIGH);
+  digitalWrite(CON_A, HIGH);
+  digitalWrite(CON_B, HIGH);
+  digitalWrite(CON_G, HIGH);
+  digitalWrite(CON_E, HIGH);
+  digitalWrite(CON_D, HIGH);
+  delay(2500);
+  apagar();
+}
+void independecia()
+{
+  digitalWrite(LED_C, HIGH);
+  digitalWrite(CON_B, HIGH);
+  digitalWrite(CON_C, HIGH);
+  delay(2500);
+  apagar();
+}
+void moreno()
+{
+  digitalWrite(LED_D, HIGH);
+
+  digitalWrite(CON_A, HIGH);
+  digitalWrite(CON_B, HIGH);
+  digitalWrite(CON_C, HIGH);
+  digitalWrite(CON_D, HIGH);
+  digitalWrite(CON_F, HIGH);
+  digitalWrite(CON_E, HIGH);
+  delay(2500);
+  apagar();
+}
