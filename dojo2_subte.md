@@ -1,4 +1,4 @@
-# DOJO - A - Punto 3
+# DOJO - A - Punto 1 Subtes
 
 ![LOGO TINKERCAD](https://i.ibb.co/K08W9N9/Arduino-Tinkercad.jpg)
 
