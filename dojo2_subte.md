@@ -12,7 +12,7 @@
 
 ## PROYECTO: DOJO 2-A Punto 1 Subte
 
-![IMAGEN DEL PROYECTO](https://im.ge/i/URzxLY)
+![IMAGEN DEL PROYECTO](https://i.im.ge/2023/05/15/URzxLY.Copy-of-Dojo-2-Thomas-Szymuda-1-D.png)
 
 ## DESCRIPCIÓN
 
