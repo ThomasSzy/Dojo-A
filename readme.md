@@ -12,7 +12,7 @@
 
 ## PROYECTO: DOJO A punto 3
 
-![IMAGEN DEL PROYECTO](https://i.ibb.co/P5StJQ8/Captura.jpg)
+![IMAGEN DEL PROYECTO](https://i.im.ge/2023/05/21/hrXklq.Thomas-Szymuda-Primer-Parcial-1D.png)
 
 ## DESCRIPCIÓN
 
